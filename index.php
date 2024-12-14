@@ -8,16 +8,16 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="nav-link active" aria-current="page" href="/">Accueil / logo</a>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                  <a class="nav-link" href="/evenement">Evenement</a>
-                  <a class="nav-link" href="/contact">Contact</a>
-                  <a class="nav-link" href="/connexion">Connexion</a>
+        <nav class="navbar navbar-expand-lg bg-primary">
+            <div class="container-fluid ">
+                <a class="nav-link active " aria-current="page" href="/"><img src="/.gitignore/image/logo.png" width="10%" class="rounded-circle"></a>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-link" href="/evenement">Evenement</a>
+                    <a class="nav-link" href="/contact">Contact</a>
+                    <a class="nav-link" href="/connexion">Connexion</a>
+                  </div>
                 </div>
-              </div>
             </div>
           </nav>
     </header>
