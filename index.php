@@ -13,7 +13,21 @@ require_once './db/session.php';
 </head>
 
 <body>
+
     <header>
+
+    <div id="messageDeconnexion" class="alert alert-info" style="display:none;">
+    <?php if (!empty($message)) echo htmlspecialchars($message); ?>
+</div>
+
+    <div>
+    <?php
+    $message="";
+     if (isset($_GET['deconnexion']) && $_GET['deconnexion'] === "deconnexion"){
+      $message= 'vous etes deconnecté';
+      echo "<script>window.addEventListener('DOMContentLoaded', () => { afficherDeconnexion('$message'); });</script>";} ?>
+  </div>
+
         <nav class="navbar navbar-expand-lg bg-primary">
             <div class="container-fluid ">
                 <a class="nav-link active " aria-current="page" href="/"><img src="/.gitignore/image/logo.png" width="10%" class="rounded-circle"></a>
@@ -35,6 +49,7 @@ require_once './db/session.php';
             </div>
           </nav>
     </header>
+    
 
     <main id="main-page">
 
@@ -51,7 +66,7 @@ require_once './db/session.php';
       </footer>
     </div>
 
-    
+    <script src ="./js/deconnexion.js"></script>
     <script type="module" src="/Router/Router.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
