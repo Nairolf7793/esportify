@@ -1,5 +1,6 @@
 <?php
 require_once "../db/DbConnexion.php";
+require_once "../db/session.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(!$_POST['pseudo'] || !$_POST['password']) {

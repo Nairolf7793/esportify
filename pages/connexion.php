@@ -1,3 +1,7 @@
+<?php 
+require_once '../db/session.php';
+?>
+
 <!--debut formulaire de connexion -->
 <div class="container d-flex flex-column">
     <div class="flex-column bg-danger m-4">
