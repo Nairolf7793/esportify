@@ -47,7 +47,7 @@
                 <input type="number" class="form-control" id="age">
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary">S'inscrire</button>
+                <button type="submit" class="btn btn-primary" id="btn-validate">S'inscrire</button>
             </div>
         </form>
     </div>
