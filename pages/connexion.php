@@ -1,42 +1,65 @@
+<?php 
+require_once '../db/session.php';
+?>
+
+<!--debut formulaire de connexion -->
+<div class="container d-flex flex-column">
+    <div class="flex-column bg-danger m-4">
+        <h1 class="text-center">Connexion</h1>
+        <form action = "../auth/connexionDb.php" method = "POST">
+            <div class="mb-3 p-2">
+                <label for="pseudoCo" class="form-label">Pseudo</label>
+                <input type="text" class="form-control" id="pseudoCo" name="pseudo">
+            </div>
+            <div class="mb-3 p-2">
+                <label for="passwordCo" class="form-label">Password</label>
+                <input type="password" class="form-control" id="passwordCo" name="password">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary mb-2">Se connecter</button>
+            </div>
+            <!--definir message si erreur identifiant de connexion -->
+            <div class="text-center fs-2 text-success">       
 <?php
+$error = '';
+if (isset($_GET['error'])) {
+    switch ($_GET['error']) {
+        case 'missing_fields':
+            $error = 'Veuillez remplir tous les champs.';
+            break;
+        case 'invalid_user':
+            $error = 'Identifiant incorrect.';
+            break;
+        case 'invalid_password':
+            $error = 'Identifiant incorrect'; //message identique cf cnil
+            break;
+        default:
+            $error = 'Une erreur inconnue s\'est produite.';
+    }
+    if ($error){
+        echo "$error";
+        }
+}
+?>
+            </div>
+            <!-- -->
+        </form>
+    </div> 
+<!--fin du formulaire de connexion -->
+
+<!--debut formulaire inscription -->
+    <?php
     $message ='';
     if (isset($_GET['message']) && $_GET['message'] === 'success'){
         $message = 'vous etes bien inscrit, vous pouvez vous connecter';
     }
     ?>
 
-
-
-<!-- afficher le message success inscription -->
-
-    <!--fin du commentaire -->
-
-
-
-<div class="container d-flex flex-column">
-
-<?php if (!empty($message)): ?>
+    <?php if (!empty($message)): ?>
     <div class="text-center">
         <?php echo htmlspecialchars($message); ?>
     </div>
-<?php endif; ?>
-
-    <div class="flex-column bg-danger m-4">
-        <h1 class="text-center">Connexion</h1>
-        <form>
-            <div class="mb-3 p-2">
-                <label for="pseudoConnexion" class="form-label">Pseudo</label>
-                <input type="text" class="form-control" id="pseudoConnexion">
-            </div>
-            <div class="mb-3 p-2">
-                <label for="passwordConnexion" class="form-label">Password</label>
-                <input type="password" class="form-control" id="passwordConnexion">
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary mb-2">Se connecter</button>
-            </div>
-        </form>
-    </div> 
+    <?php endif; ?>
 
     <div class="flex-column bg-success m-4">
         <h1 class="text-center">Inscription</h1>
