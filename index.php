@@ -1,3 +1,8 @@
+<?php 
+require_once './db/DbConnexion.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
