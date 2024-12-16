@@ -16,8 +16,9 @@ function validateInscription(){
     validateRequired(inputPassword);
     validateRequired(inputEmail);
     validateRequired(inputAge);
-    const passwordOk = validatePassword(inputPassword);
-    const passwordValid = validatePasswordValidation(inputPassword, inputPasswordValidation);
+    validateMail(inputEmail);
+    validatePassword(inputPassword);
+    validatePasswordValidation(inputPassword, inputPasswordValidation);
      
 }
 
@@ -32,6 +33,23 @@ function validateRequired(input){
         input.classList.add("is-invalid");
     }
 }
+
+//fonction pour valider le mail
+
+function validateMail(input){
+    const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mailUser = input.value;
+
+    if(mailUser.match(mailRegex)){
+        input.classList.add("is-valid");
+        input.classList.remove("is-invalid");
+    }
+    else {
+        input.classList.remove("is-valid");
+        input.classList.add("is-invalid");
+    }
+}
+
 
 //fonction pour sécurisé le password d'inscription
 function validatePassword(input){
