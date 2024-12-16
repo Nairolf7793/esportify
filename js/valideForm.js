@@ -2,10 +2,11 @@
 
 const inputPseudo = document.getElementById("pseudoInscription");
 const inputPassword = document.getElementById("passwordInscription");
-const inputPasswordValidation = document.getElementById("passwordValidationOk");
+const inputPasswordValid = document.getElementById("passwordValidationOk");
 const inputEmail = document.getElementById("email");
 const inputAge = document.getElementById("age");
 const btnValidation = document.getElementById("btn-validate");
+
 
 inputPseudo.addEventListener("keyup", validateInscription);
 inputPassword.addEventListener("keyup", validateInscription);
@@ -14,21 +15,20 @@ inputAge.addEventListener("keyup", validateInscription);
 
 function validateInscription(){
     const pseudoOk = validateRequired(inputPseudo);
-    const passwordOk = validateRequired(inputPassword);
     const emailOk = validateRequired(inputEmail);
     const ageOk = validateRequired(inputAge);
-    validateMail(inputEmail);
-    validatePassword(inputPassword);
-    validatePasswordValidation(inputPassword, inputPasswordValidation);
+
+    const passwordOk = validatePassword(inputPassword);
+    const validPasswordOk = validatePasswordValidation(inputPassword, inputPasswordValid);
 
     //faire booleen pour valider que tous les champs sont remplis pour afficher le bouton inscription
-    if(pseudoOk && passwordOk && emailOk && ageOk){
+    
+    if(pseudoOk && passwordOk && emailOk && ageOk && validPasswordOk){
         btnValidation.disabled = false;
     }
     else {
         btnValidation.disabled = true;
-    }
-     
+    }  
 }
 
 function validateRequired(input){
@@ -81,17 +81,16 @@ function validatePassword(input){
 }
 
 //fonction pour confirmer le password dans inscription
-function validatePasswordValidation (inputPassword, inputPasswordValidation){
-    if(inputPassword.value == inputPasswordValidation.value){
-        inputPasswordValidation.classList.add("is-valid");
-        inputPasswordValidation.classList.remove("is-invalid");
+function validatePasswordValidation (inputPassword, inputPasswordValid){
+    if(inputPassword.value === inputPasswordValid.value){
+        inputPasswordValid.classList.add("is-valid");
+        inputPasswordValid.classList.remove("is-invalid");
         return true;
     } 
     else {
-        inputPasswordValidation.classList.remove("is-valid");
-        inputPasswordValidation.classList.add("is-invalid");
+        inputPasswordValid.classList.remove("is-valid");
+        inputPasswordValid.classList.add("is-invalid");
         return false;
     }
-
 }
 

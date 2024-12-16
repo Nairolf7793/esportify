@@ -1,53 +1,53 @@
-<div class="container d-flex justify-content-around p-5">
+<div class="container d-flex flex-column">
 
-    <!--<div class="flex-column bg-danger">
+    <div class="flex-column bg-danger m-4">
         <h1 class="text-center">Connexion</h1>
         <form>
-            <div class="mb-3">
+            <div class="mb-3 p-2">
                 <label for="pseudoConnexion" class="form-label">Pseudo</label>
                 <input type="text" class="form-control" id="pseudoConnexion">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 p-2">
                 <label for="passwordConnexion" class="form-label">Password</label>
                 <input type="password" class="form-control" id="passwordConnexion">
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary">Se connecter</button>
+                <button type="submit" class="btn btn-primary mb-2">Se connecter</button>
             </div>
         </form>
-    </div> -->
+    </div> 
 
-    <div class="flex-column bg-success">
+    <div class="flex-column bg-success m-4">
         <h1 class="text-center">Inscription</h1>
         <form>
-            <div class="mb-3">
+            <div class="mb-3 p-2">
                 <label for="pseudoInscription" class="form-label">Pseudo</label>
                 <input type="text" class="form-control" id="pseudoInscription">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 p-2">
                 <label for="passwordInscription" class="form-label">Password</label>
                 <input type="password" class="form-control" id="passwordInscription">
                 <div class="invalid-feedback">
                     Votre mot de passe doit comporter une majuscule, une minuscule, un caractère spécial, un chiffre et au mois 8 caractères.
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 p-2">
                 <label for="passwordValidationOk" class="form-label">Valider le password</label>
                 <input type="password" class="form-control" id="passwordValidationOk">
                 <div class="invalid-feedback">
                     Vos mots de passe ne sont pas équivalents
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 p-2">
                 <label for="email" class="form-label">E-mail</label>
                 <input type="email" class="form-control" id="email">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 p-2">
                 <label for="age" class="form-label">Age</label>
-                <input type="number" class="form-control" id="age">
+                <input type="number" class="form-control" id="age" min="1">
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary" id="btn-validate">S'inscrire</button>
+                <button type="submit" class="btn btn-primary mb-2" id="btn-validate">S'inscrire</button>
             </div>
         </form>
     </div>
