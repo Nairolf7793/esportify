@@ -1,9 +1,9 @@
 //fonction pour valider tous les champs requis
 
-const inputPseudo = document.getElementById("pseudoInscription");
-const inputPassword = document.getElementById("passwordInscription");
-const inputPasswordValid = document.getElementById("passwordValidationOk");
-const inputEmail = document.getElementById("email");
+const inputPseudo = document.getElementById("pseudo");
+const inputPassword = document.getElementById("password");
+const inputPasswordValid = document.getElementById("passwordValidation");
+const inputEmail = document.getElementById("mail");
 const inputAge = document.getElementById("age");
 const btnValidation = document.getElementById("btn-validate");
 
