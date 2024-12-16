@@ -28,7 +28,7 @@ require_once './db/session.php';
                     <a class="nav-link" href="/evenement">Evenement</a>
                     <a class="nav-link" href="/contact">Contact</a>
                   <?php if (isset($_SESSION["user"])) { ?> 
-                    <a class="nav-link" href ="#">Déconnexion</a>  
+                    <a class="nav-link" href ="./auth/deconnexion.php">Déconnexion</a>  
                     <?php } else { ?> <a class="nav-link" href="/connexion">Connexion</a>
                     <?php } ?>
                   </div>
