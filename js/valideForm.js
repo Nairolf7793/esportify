@@ -25,7 +25,7 @@ function validateInscription(){
     if(pseudoOk && passwordOk && emailOk && ageOk){
         btnValidation.disabled = false;
     }
-    else ("") {
+    else {
         btnValidation.disabled = true;
     }
      
