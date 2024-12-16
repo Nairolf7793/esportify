@@ -1,4 +1,25 @@
+<?php
+    $message ='';
+    if (isset($_GET['message']) && $_GET['message'] === 'success'){
+        $message = 'vous etes bien inscrit, vous pouvez vous connecter';
+    }
+    ?>
+
+
+
+<!-- afficher le message success inscription -->
+
+    <!--fin du commentaire -->
+
+
+
 <div class="container d-flex flex-column">
+
+<?php if (!empty($message)): ?>
+    <div class="text-center">
+        <?php echo htmlspecialchars($message); ?>
+    </div>
+<?php endif; ?>
 
     <div class="flex-column bg-danger m-4">
         <h1 class="text-center">Connexion</h1>

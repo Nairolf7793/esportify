@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo 'une erreur est survenue';
         }
         else {
-            header('location: /');
+            header('location: /connexion?message=success');
             exit ();
             
         }
