@@ -1,6 +1,5 @@
 <?php 
 require_once './db/DbConnexion.php';
-
 ?>
 
 <!DOCTYPE html>
