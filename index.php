@@ -14,21 +14,20 @@ require_once './db/session.php';
 
 <body>
     <header>
-    <?php 
-                      if (isset($_SESSION["user"])): ?> 
-                      <p>Bonjour <?php echo $_SESSION["user"]["pseudo"]; ?> </p>
-                     
-                    <?php endif; ?>  
-   
         <nav class="navbar navbar-expand-lg bg-primary">
             <div class="container-fluid ">
                 <a class="nav-link active " aria-current="page" href="/"><img src="/.gitignore/image/logo.png" width="10%" class="rounded-circle"></a>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                   <div class="navbar-nav">
+                    <div class="nav-link fw-bold">
+                      <?php 
+                      if (isset($_SESSION["user"])): ?> 
+                      <p>Bonjour <?php echo $_SESSION["user"]["pseudo"]; ?> </p>
+                      <?php endif; ?>  
+                    </div>
                     <a class="nav-link" href="/evenement">Evenement</a>
                     <a class="nav-link" href="/contact">Contact</a>
-                  <?php if (isset($_SESSION["user"])) { ?> 
-                    <a class="nav-link" href ="./auth/deconnexion.php">Déconnexion</a>  
+                    <?php if (isset($_SESSION["user"])) { ?> <a class="nav-link" href ="./auth/deconnexion.php">Déconnexion</a> 
                     <?php } else { ?> <a class="nav-link" href="/connexion">Connexion</a>
                     <?php } ?>
                   </div>
