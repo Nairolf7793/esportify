@@ -2,6 +2,7 @@
 
 const inputPseudo = document.getElementById("pseudoInscription");
 const inputPassword = document.getElementById("passwordInscription");
+const inputPasswordValidation = document.getElementById("passwordValidationOk");
 const inputEmail = document.getElementById("email");
 const inputAge = document.getElementById("age");
 
@@ -16,13 +17,15 @@ function validateInscription(){
     validateRequired(inputEmail);
     validateRequired(inputAge);
     const passwordOk = validatePassword(inputPassword);
-    
+    const passwordValid = validatePasswordValidation(inputPassword, inputPasswordValidation);
+     
 }
 
 function validateRequired(input){
     if(input.value != ''){
         input.classList.add("is-valid");
         input.classList.remove("is-invalid");
+        
     }
     else {
         input.classList.remove("is-valid");
@@ -30,6 +33,7 @@ function validateRequired(input){
     }
 }
 
+//fonction pour sécurisé le password d'inscription
 function validatePassword(input){
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/;
     const passwordUser = input.value;
@@ -43,3 +47,17 @@ function validatePassword(input){
         input.classList.add("is-invalid");
     }
 }
+
+//fonction pour confirmer le password dans inscription
+function validatePasswordValidation (inputPassword, inputPasswordValidation){
+    if(inputPassword.value == inputPasswordValidation.value){
+        inputPasswordValidation.classList.add("is-valid");
+        inputPasswordValidation.classList.remove("is-invalid");
+    } 
+    else {
+        inputPasswordValidation.classList.remove("is-valid");
+        inputPasswordValidation.classList.add("is-invalid");
+    }
+
+}
+
