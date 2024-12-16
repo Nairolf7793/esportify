@@ -16,18 +16,6 @@ require_once './db/session.php';
 
     <header>
 
-    <div id="messageDeconnexion" class="alert alert-info" style="display:none;">
-    <?php if (!empty($message)) echo htmlspecialchars($message); ?>
-</div>
-
-    <div>
-    <?php
-    $message="";
-     if (isset($_GET['deconnexion']) && $_GET['deconnexion'] === "deconnexion"){
-      $message= 'vous etes deconnecté';
-      echo "<script>window.addEventListener('DOMContentLoaded', () => { afficherDeconnexion('$message'); });</script>";} ?>
-  </div>
-
         <nav class="navbar navbar-expand-lg bg-primary">
             <div class="container-fluid ">
                 <a class="nav-link active " aria-current="page" href="/"><img src="/.gitignore/image/logo.png" width="10%" class="rounded-circle"></a>
@@ -44,6 +32,15 @@ require_once './db/session.php';
                     <?php if (isset($_SESSION["user"])) { ?> <a class="nav-link" href ="./auth/deconnexion.php">Déconnexion</a> 
                     <?php } else { ?> <a class="nav-link" href="/connexion">Connexion</a>
                     <?php } ?>
+                    <div id="messageDeconnexion" class="nav-link bg-warning" style="display:none;">
+                      <?php if (!empty($message)) echo htmlspecialchars($message); ?>
+                    </div>
+                    <div>
+                    <?php $message="";
+                      if (isset($_GET['deconnexion']) && $_GET['deconnexion'] === "deconnexion"){
+                      $message= 'vous etes deconnecté';
+                      echo "<script>window.addEventListener('DOMContentLoaded', () => { afficherDeconnexion('$message'); });</script>";} ?>
+                    </div>
                   </div>
                 </div>
             </div>
