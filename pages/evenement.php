@@ -3,7 +3,7 @@
         <p>"Prêt à plonger dans l'aventure ? Rejoins notre communauté de gamers et trouve la partie qui te correspond. Des soirées thématiques aux tournois épiques, 
         il y en a pour tous les goûts !" </p>
             <ul>
-                <li>Crée ton événement et invite tes contacts.<button class="ms-2">Créer ton evenement</button></li>
+                <li>Crée ton événement et invite tes contacts.<button class="ms-2"><a href ="/create_event">Créer ton evenement</a></button></li>
                 <li>Rejoins une partie en cours et rencontre de nouveaux joueurs.<button class="ms-2">Voir les parties en cours</button></li>
                 <li>Explore des milliers d'événements organisés par notre communauté.<button class="ms-2"><a href="#inscription">S'inscrire à un evenement</a></button></li>
             </ul>
