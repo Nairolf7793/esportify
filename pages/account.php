@@ -25,6 +25,7 @@ $event = $query->fetchAll(PDO::FETCH_ASSOC);
         <?php if (isset($_SESSION["user"])): ?> 
             <?php if ($_SESSION["user"]["role"] == "admin"): ?> 
                 <a class="nav-link" href = "/validation_event">Validation event</a>
+                <a class="nav-link" href = "/liste_joueur">Voir les joueurs inscrits</a>
             <?php endif; ?>
         <?php endif; ?>
         <li class="nav-item">
