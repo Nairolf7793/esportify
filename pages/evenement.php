@@ -7,10 +7,7 @@ $event = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!-- section pour acces page validation event -->
- <div>
-    <a href = "/validation_event">Validation event</a>
- </div>
-
+ 
 <section class="container evenemnt">
     <h1 class="text-center">Bienvenue à evenement</h1>
         <p>"Prêt à plonger dans l'aventure ? Rejoins notre communauté de gamers et trouve la partie qui te correspond. Des soirées thématiques aux tournois épiques, 

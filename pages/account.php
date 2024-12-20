@@ -1,12 +1,11 @@
 <?php 
 require_once "../db/DbConnexion.php";
+require_once "../db/session.php";
 
 $query = DbConnection::getPdo()->query('SELECT * FROM event');
 $event = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
-
 
 <div class="">
   <div class="row">
@@ -23,6 +22,11 @@ $event = $query->fetchAll(PDO::FETCH_ASSOC);
         <li class="nav-item">
           <a class="nav-link" href="/create_event">Créer un evenement</a>
         </li>
+        <?php if (isset($_SESSION["user"])): ?> 
+            <?php if ($_SESSION["user"]["role"] == "admin"): ?> 
+                <a class="nav-link" href = "/validation_event">Validation event</a>
+            <?php endif; ?>
+        <?php endif; ?>
         <li class="nav-item">
           <a class="nav-link" href="#">Mes favoris</a>
         </li>
