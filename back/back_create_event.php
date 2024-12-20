@@ -1,5 +1,10 @@
 <?php
 require_once '../db/DbConnexion.php';
+require_once '../db/session.php';
+var_dump($_SESSION);
+
+
+$id_joueur = $_SESSION['user_id']; // Récupérer l'ID utilisateur depuis la session
 $pdo = DbConnection::getPdo();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -11,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $date_fin = $_POST['date_fin'];
     $heure_fin = $_POST['heure_fin'];
 
-    $query=DbConnection::getPdo()->prepare('INSERT INTO event(titre,description,nb_joueur,date_debut,heure_debut,date_fin,heure_fin)
+    $query=DbConnection::getPdo()->prepare('INSERT INTO event(titre,description,nb_joueur,date_debut,heure_debut,date_fin,heure_fin, id_joueur)
     VALUES (
     :titre,
     :description,
@@ -19,7 +24,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     :date_debut,
     :heure_debut,
     :date_fin,
-    :heure_fin
+    :heure_fin,
+    :id_joueur
     )
     ');
 }
@@ -31,6 +37,7 @@ $query->bindParam(':date_debut', $date_debut);
 $query->bindParam(':heure_debut', $heure_debut);
 $query->bindParam(':date_fin', $date_fin);
 $query->bindParam(':heure_fin', $heure_fin);
+$query->bindParam(':id_joueur', $id_joueur, PDO::PARAM_INT);
 
 if (!$query->execute()){
     echo 'une erreur est survenue';
