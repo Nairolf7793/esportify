@@ -1,7 +1,7 @@
 <?php 
 require_once "../db/DbConnexion.php";
 
-$query = DbConnection::getPdo()->query('SELECT * FROM event WHERE visibilite="valid"');
+$query = DbConnection::getPdo()->query('SELECT event.*, user.pseudo FROM event JOIN user ON event.id_joueur = user.id WHERE event.visibilite="valid"');
 $event = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
@@ -18,7 +18,7 @@ $event = $query->fetchAll(PDO::FETCH_ASSOC);
                 <li>Explore des milliers d'événements organisés par notre communauté.<button class="ms-2"><a href="#inscription">S'inscrire à un evenement</a></button></li>
             </ul>
 
-    <?php foreach ($event as $valeur) { ?>
+    
     <h2 class="text-center">Evenement en cours</h2>
     <ol class="list-group list-group-numbered">
         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -40,12 +40,12 @@ $event = $query->fetchAll(PDO::FETCH_ASSOC);
     </ol>
 
     <h2 id="inscription" class="text-center">Inscrit toi à l'evenement de ton choix</h2>
-
+    <?php foreach ($event as $valeur) { ?>
         <ol class="list-group list-group-numbered">
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div class="ms-2 me-auto">
                     <div class="fw-bold"><?php echo $valeur ['titre'] ?></div>
-                        Créer par :
+                        Créer par :  <?php echo $valeur ['pseudo'] ?>
                 </div>
                 <div class="me-4">
                     <?php echo $valeur ["date_debut"] ?>

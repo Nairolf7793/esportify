@@ -1,8 +1,6 @@
 <?php
 require_once '../db/DbConnexion.php';
 require_once '../db/session.php';
-var_dump($_SESSION);
-
 
 $id_joueur = $_SESSION['user_id']; // Récupérer l'ID utilisateur depuis la session
 $pdo = DbConnection::getPdo();
