@@ -1,11 +1,15 @@
 <?php 
 require_once "../db/DbConnexion.php";
 
-$query = DbConnection::getPdo()->query('SELECT * FROM event');
+$query = DbConnection::getPdo()->query('SELECT * FROM event WHERE visibilite="valid"');
 $event = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
+<!-- section pour acces page validation event -->
+ <div>
+    <a href = "/validation_event">Validation event</a>
+ </div>
 
 <section class="container evenemnt">
     <h1 class="text-center">Bienvenue à evenement</h1>
