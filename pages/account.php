@@ -44,6 +44,7 @@ $event = $query->fetchAll(PDO::FETCH_ASSOC);
                     <div class="fw-bold"><?php echo $valeur ['titre'] ?></div>
                         Créer par :
                 </div>
+                <div class="me-4"><?php echo $valeur ['visibilite'] ?></div>
                 <div class="me-4">
                     <?php echo $valeur ["date_debut"] ?>
                 </div>
