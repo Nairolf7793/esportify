@@ -6,6 +6,7 @@ export const allRoutes = [
     new Route("/evenement", "Evenement", "/pages/evenement.php"),
     new Route("/contact", "Contact", "/pages/contact.php"),
     new Route("/connexion", "Connexion", "/pages/connexion.php" , "/js/valideForm.js" ),
+    new Route("/create_event", "Création evenement", "/pages/create_event.php"),
 ];
 
 //Le titre s'affiche comme ceci : Route.titre - websitename
