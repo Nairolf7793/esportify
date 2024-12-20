@@ -1,7 +1,7 @@
 <?php 
 require_once "../db/DbConnexion.php";
 
-$query = DbConnection::getPdo()->query('SELECT * FROM event');
+$query = DbConnection::getPdo()->query('SELECT * FROM event WHERE visibilite="valid"');
 $event = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
