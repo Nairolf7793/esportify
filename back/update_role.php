@@ -2,11 +2,15 @@
 require_once '../db/DbConnexion.php';
 require_once '../db/session.php';
 
-session_start();
+
+// Activez les erreurs PDO pour capturer les problèmes SQL
+$pdo = DbConnection::getPdo();
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Vérifiez si l'utilisateur est connecté et admin
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
-    die('Accès interdit.');
+    echo('Accès interdit.');
+    exit ();
 }
 
 // Vérifiez que les données POST sont présentes
@@ -15,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id']) && isset($
     $newRole = $_POST['new_role'];
 
     // Vérifiez que le rôle est valide
-    $validRoles = ['joueur', 'organisateur'];
+    $validRoles = ['joueur', 'organisateur', 'administrateur'];
     if (!in_array($newRole, $validRoles)) {
         die('Rôle invalide.');
     }
@@ -27,10 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id']) && isset($
     $query->bindParam(':id', $userId, PDO::PARAM_INT);
 
     if ($query->execute()) {
-        header('Location: /liste_joueur?message=success');
+        header('Location: /liste_joueur');
         exit();
     } else {
         echo 'Erreur lors de la mise à jour du rôle.';
     }
+
 }
 ?>
