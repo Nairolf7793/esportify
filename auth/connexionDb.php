@@ -9,12 +9,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         $pseudo = $_POST['pseudo'];
         $password = $_POST['password'];
+
         $db = DbConnection::getPdo();
+
         $sql = ('SELECT * FROM user WHERE pseudo = :pseudo'); //requete stockée dans variable
         $query = $db->prepare($sql);
-        
         $query->bindParam(':pseudo', $pseudo);
-
         $query->execute();
 
         $user = $query->fetch(PDO::FETCH_ASSOC);
@@ -31,7 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             exit();
 
            } else {
-            $_SESSION["user"]= $user;
+            $_SESSION["user"] = $user; // Stocke l'utilisateur complet
+            $_SESSION["user_id"] = $user['id']; // Stocke l'ID utilisateur
             header('location: /');
             exit();
            }

@@ -1,16 +1,13 @@
 <?php 
 require_once "../db/DbConnexion.php";
 
-$query = DbConnection::getPdo()->query('SELECT * FROM event WHERE visibilite="valid"');
+$query = DbConnection::getPdo()->query('SELECT event.*, user.pseudo FROM event JOIN user ON event.id_joueur = user.id WHERE event.visibilite="valid"');
 $event = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
 <!-- section pour acces page validation event -->
- <div>
-    <a href = "/validation_event">Validation event</a>
- </div>
-
+ 
 <section class="container evenemnt">
     <h1 class="text-center">Bienvenue à evenement</h1>
         <p>"Prêt à plonger dans l'aventure ? Rejoins notre communauté de gamers et trouve la partie qui te correspond. Des soirées thématiques aux tournois épiques, 
@@ -21,6 +18,7 @@ $event = $query->fetchAll(PDO::FETCH_ASSOC);
                 <li>Explore des milliers d'événements organisés par notre communauté.<button class="ms-2"><a href="#inscription">S'inscrire à un evenement</a></button></li>
             </ul>
 
+    
     <h2 class="text-center">Evenement en cours</h2>
     <ol class="list-group list-group-numbered">
         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -47,7 +45,7 @@ $event = $query->fetchAll(PDO::FETCH_ASSOC);
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div class="ms-2 me-auto">
                     <div class="fw-bold"><?php echo $valeur ['titre'] ?></div>
-                        Créer par :
+                        Créer par :  <?php echo $valeur ['pseudo'] ?>
                 </div>
                 <div class="me-4">
                     <?php echo $valeur ["date_debut"] ?>
