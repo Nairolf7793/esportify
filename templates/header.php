@@ -1,5 +1,8 @@
 <?php
-require_once 'config/menu.php';
+session_start();
+require_once __DIR__ . '/../config/menu.php';
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -27,8 +30,13 @@ require_once 'config/menu.php';
                 <?php } ?>
             </ul>
 
-            <div class="col-md-3 text-end">
-                <a href="auth/signin.php" class="btn btn-outline-primary me-2">Se connecter</a>
-                <a href="auth/inscription.php" class="btn btn-primary">S'inscrire</a>
+            <div class="col-md-3 text-end d-flex">
+                <?php if (isset($_SESSION['user'])): ?>
+                    <a href="logout.php" class="btn btn-primary me-2">mon espace</a>
+                    <a href="logout.php" class="btn btn-primary me-2">Déconnexion</a>
+                <?php else: ?>
+                    <a href="login.php" class="btn btn-outline-primary me-2">Se connecter</a>
+                    <a href="inscription.php" class="btn btn-primary">S'inscrire</a>
+                <?php endif; ?>
             </div>
         </header>
