@@ -52,3 +52,15 @@ function verifyUser($user): array|bool {
         return true;
     }
 }
+
+function verifyUserLoginPassword(PDO $pdo, string $pseudo, string $password) {
+    $query = $pdo ->prepare('SELECT id, pseudo, password FROM user WHERE pseudo = :pseudo');
+    $query->bindParam(":pseudo", $pseudo);
+    $query->execute();
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+    if ($user && password_verify($password, $user["password"])) {
+        return $user;
+    } else {
+        return false;
+    }
+}

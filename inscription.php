@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $verif = verifyUser($_POST);
     if ($verif === true) {
         $resAdd = addUser($pdo, $_POST["pseudo"], $_POST['password'], $_POST["mail"], $_POST["age"]);
+        header ("location: login.php");
     } else {
         $errors = $verif;
     }
