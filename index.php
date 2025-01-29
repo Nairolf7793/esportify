@@ -1,5 +1,7 @@
 <?php
-require_once "templates/header.php"
+require_once "templates/header.php";
+require_once "config/function_event.php";
+$events = getEvents($pdo);
 ?>
 
 <h1>Bienvenue chez Esportify</h1>
@@ -43,7 +45,9 @@ require_once "templates/header.php"
 <section class="dernier event">
     <h2 class="mt-4">Derniers events</h2>
     <div class="card-group gap-4 mt-3">
-        <?php require_once "templates/events_part.php" ?>
+    <?php foreach ($events as $event) { ?>
+        <?php include "templates/events_part.php";
+        } ?>
     </div>
 </section>
 <?php

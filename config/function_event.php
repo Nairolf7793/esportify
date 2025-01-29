@@ -2,7 +2,7 @@
 require_once "pdo.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-function getEvents (PDO $pdo, string $titre, string $description, int $nb_joueur, string $date_debut, string $heure_debut, string $date_fin, string $heure_fin){
+function addEvents (PDO $pdo, string $titre, string $description, int $nb_joueur, string $date_debut, string $heure_debut, string $date_fin, string $heure_fin){
     $query = $pdo->prepare("INSERT INTO event (titre, description, nb_joueur, date_debut, heure_debut, date_fin, heure_fin)
                             VALUES (:titre, :description, :nb_joueur, :date_debut, :heure_debut, :date_fin, :heure_fin)");
 
@@ -33,7 +33,7 @@ function verifyEvent($event): array|bool {
     }
 
     if (isset($event ["nb_joueur"])) {
-        if(strlen ($event ["nb_joueur"]) <6){
+        if($event ["nb_joueur"]< 1 || $event ["nb_joueur"] > 6 ){
             $errors ["nb_joueur"] = "La nombre de joueur doit être compris entre 1 et 6";
         }
     }
@@ -43,4 +43,10 @@ function verifyEvent($event): array|bool {
     } else {
         return true;
     }
+}
+
+function getEvents ($pdo) {
+    $query = $pdo->prepare("SELECT * FROM event");
+    $query->execute();
+    return $query->fetchAll();
 }

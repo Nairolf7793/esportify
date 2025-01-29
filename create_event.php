@@ -6,7 +6,7 @@ $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $verifEvent = verifyEvent($_POST);
     if ($verifEvent === true) {
-        $Add = getEvents($pdo, $_POST["titre"], $_POST['description'], $_POST["nb_joueur"], $_POST["date_debut"],$_POST["heure_debut"],$_POST["date_fin"],$_POST["heure_fin"]);
+        $Add = addEvents($pdo, $_POST["titre"], $_POST['description'], $_POST["nb_joueur"], $_POST["date_debut"],$_POST["heure_debut"],$_POST["date_fin"],$_POST["heure_fin"]);
         header ("location: events.php");
     } else {
         $errors = $verifEvent;
