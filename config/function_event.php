@@ -17,3 +17,30 @@ function getEvents (PDO $pdo, string $titre, string $description, int $nb_joueur
     return $query->execute();
 }
 }
+
+function verifyEvent($event): array|bool {
+    $errors = [];
+    if (isset($event ["titre"])) {
+        if($event ["titre"] === ""){
+            $errors ["titre"] = "Le champs titre est obligatoire";
+        }
+    }
+
+    if (isset($event ["description"])) {
+        if(strlen ($event ["description"]) <6){
+            $errors ["description"] = "La description est trop courte";
+        }
+    }
+
+    if (isset($event ["nb_joueur"])) {
+        if(strlen ($event ["nb_joueur"]) <6){
+            $errors ["nb_joueur"] = "La nombre de joueur doit être compris entre 1 et 6";
+        }
+    }
+    if (count($errors)) {
+        return $errors;
+
+    } else {
+        return true;
+    }
+}
