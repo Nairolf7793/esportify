@@ -1,6 +1,6 @@
 <?php
 require_once  'templates/header.php';
-require_once 'config/function.php';
+require_once 'config/function_user.php';
 
 $error = null;
 

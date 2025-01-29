@@ -40,8 +40,12 @@ require_once "templates/header.php"
     </div>
 </div>
 
-
-
+<section class="dernier event">
+    <h2 class="mt-4">Derniers events</h2>
+    <div class="card-group gap-4 mt-3">
+        <?php require_once "templates/events_part.php" ?>
+    </div>
+</section>
 <?php
 require_once 'templates/footer.php';
 ?>

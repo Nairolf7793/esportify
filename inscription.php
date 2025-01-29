@@ -1,5 +1,5 @@
 <?php
-require_once 'config/function.php';
+require_once 'config/function_user.php';
 require_once 'templates/header.php';
 
 /*if (isset($_POST["addUser"])) {
