@@ -1,5 +1,5 @@
 <?php
-require_once 'config/menu.php';
+require_once __DIR__ . '/../config/menu.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -28,7 +28,7 @@ require_once 'config/menu.php';
             </ul>
 
             <div class="col-md-3 text-end">
-                <a href="auth/signin.php" class="btn btn-outline-primary me-2">Se connecter</a>
-                <a href="auth/inscription.php" class="btn btn-primary">S'inscrire</a>
+                <a href="login.php" class="btn btn-outline-primary me-2">Se connecter</a>
+                <a href="inscription.php" class="btn btn-primary">S'inscrire</a>
             </div>
         </header>
