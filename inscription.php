@@ -1,10 +1,7 @@
 <?php
-require_once 'config/function.php';
+require_once 'config/function_user.php';
 require_once 'templates/header.php';
 
-/*if (isset($_POST["addUser"])) {
-    $res = addUser($pdo, $_POST["pseudo"], $_POST['password'], $_POST["mail"], $_POST["age"]);
-}*/
 
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
