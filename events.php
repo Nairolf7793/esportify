@@ -1,47 +1,58 @@
-<?php 
+<?php
 require_once "templates/header.php";
+require_once "config/function_event.php";
+$events = getEvents($pdo);
 ?>
 
-<a href = "create_event.php">Creer ton event</a>
+<a href="create_event.php">Creer ton event</a>
 <div class="col-md-3 mb-5">
-    <form action="" method="get">
-        <h2>Filtres</h2>
-        <div class="p-3 border-bottom">
-            <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher">
-        </div>
-        <div class="p-3 border-bottom">
-            <label for="nb_joueurs">Joueurs</label>
-            <input type="number" name="nb_joueurs" id="nb_joueurs" class="form-control" placeholder="Nombre de joueurs">
-        </div>
-        <div class="p-3 border-bottom">
-            <label for="start_time">Date de début</label>
-            <input type="date" name="start_time" id="start_time" class="form-control">
-        </div>
-        <div class="p-3 border-bottom">
-            <label for="pseudo">Organisateur</label>
-            <input type="text" name="pseudo" id="pseudo" class="form-control" placeholder="Saisir le pseudo">
-        </div>
-        <div class="mt-3">
-            <button type="submit" class="btn btn-primary w-100">Filtrer</button>
-        </div>
-    </form>
+  <form action="" method="get">
+    <h2>Filtres</h2>
+    <div class="p-3 border-bottom">
+      <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher">
+    </div>
+    <div class="p-3 border-bottom">
+      <label for="nb_joueurs">Joueurs</label>
+      <input type="number" name="nb_joueurs" id="nb_joueurs" class="form-control" placeholder="Nombre de joueurs">
+    </div>
+    <div class="p-3 border-bottom">
+      <label for="start_time">Date de début</label>
+      <input type="date" name="start_time" id="start_time" class="form-control">
+    </div>
+    <div class="p-3 border-bottom">
+      <label for="pseudo">Organisateur</label>
+      <input type="text" name="pseudo" id="pseudo" class="form-control" placeholder="Saisir le pseudo">
+    </div>
+    <div class="mt-3">
+      <button type="submit" class="btn btn-primary w-100">Filtrer</button>
+    </div>
+  </form>
 </div>
 
-<div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+<?php foreach ($events as $event) { ?>
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-3">
+        <img src="..." class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body text-center">
+          <h5 class="card-title"><?php echo $event['titre'] ?></h5>
+          <p class="card-text"><?php echo $event['description'] ?></p>
+          <p class="card-text"><small class="text-body-secondary">Date de début : <?php echo $event['date_debut'] ?></small></p>
+          <p class="card-text"><small class="text-body-secondary">Nombre de joueur : <?php echo $event['nb_joueur'] ?> / 6</small></p>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex align-items-center">
+        <div class="card-body ">
+          <a href="events.php" class="btn btn-primary">S'inscrire</a>
+          <a href="events.php" class="btn btn-secondary">Rejoindre l'event</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<?php } ?>
 
-<?php 
+<?php
 require_once "templates/footer.php";
 ?>

@@ -32,10 +32,10 @@
 
 .btn-secondary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: var(--secondary);
+  --bs-btn-bg: var(--tertiary);
   --bs-btn-border-color: var(--secondary);
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #f64d45;
+  --bs-btn-hover-bg: #5C95FF;
   --bs-btn-hover-border-color: var(--secondary);
   --bs-btn-focus-shadow-rgb: 49, 132, 253;
   --bs-btn-active-color: #fff;

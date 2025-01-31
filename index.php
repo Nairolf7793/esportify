@@ -43,12 +43,27 @@ $events = getEvents($pdo);
 </div>
 
 <section class="dernier event">
-    <h2 class="mt-4">Derniers events</h2>
-    <div class="card-group gap-4 mt-3">
-    <?php foreach ($events as $event) { ?>
-        <?php include "templates/events_part.php";
-        } ?>
+<div class="row my-5">
+    <div class="d-flex justify-content-between mb-1">
+       <h2>Event en cours</h2>
+       <a href="events.php" class="btn btn-primary">Voir tout</a>
     </div>
+    <?php foreach ($events as $event) {
+        include "templates/events_part.php";
+    };
+    ?>
+</div>
+
+<div class="row my-5">
+<div class="d-flex justify-content-between mb-1">
+       <h2>Derniers events crées</h2>
+       <a href="events.php" class="btn btn-primary">Voir tout</a>
+    </div>
+    <?php foreach ($events as $event) {
+        include "templates/events_part.php";
+    };
+    ?>
+</div>
 </section>
 <?php
 require_once 'templates/footer.php';
