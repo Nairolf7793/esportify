@@ -1,15 +1,21 @@
 <?php
 require_once "templates/header.php";
 require_once "config/function_event.php";
-$events = getEvents($pdo);
+
+$filters = [];
+if (isset($_GET["search"]) && $_GET["search"] !== "") {
+    $filters["search"] = $_GET["search"];
+}
+$events = getEvents($pdo, $filters);
 ?>
 
 <a href="create_event.php">Creer ton event</a>
+
 <div class="col-md-3 mb-5">
   <form action="" method="get">
     <h2>Filtres</h2>
     <div class="p-3 border-bottom">
-      <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher">
+      <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher" >
     </div>
     <div class="p-3 border-bottom">
       <label for="nb_joueurs">Joueurs</label>
@@ -26,6 +32,7 @@ $events = getEvents($pdo);
     <div class="mt-3">
       <button type="submit" class="btn btn-primary w-100">Filtrer</button>
     </div>
+    <a href="events.php">Réinitialiser</a>
   </form>
 </div>
 

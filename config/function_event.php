@@ -45,8 +45,22 @@ function verifyEvent($event): array|bool {
     }
 }
 
-function getEvents ($pdo) {
-    $query = $pdo->prepare("SELECT * FROM event");
+function getEvents (PDO $pdo, array $filters = []) :array {
+    $orderBy = "event.id DESC";
+    $relevance = "";
+    $conditions = [];
+    if (isset($filters["search"])) {
+        $match = "MATCH(titre) AGAINST(:search)";
+        $conditions[] = $match;
+        $relevance =", $match as relevance";
+        $orderBy = "relevance DESC";
+
+    }
+    $where = $conditions ? " WHERE " . implode(" AND ", $conditions) : "";
+    $query = $pdo->prepare("SELECT * $relevance FROM event $where");
+    if (isset($filters["search"])) {
+        $query->bindValue(":search", "%{$filters["search"]}%");
+    }
     $query->execute();
     return $query->fetchAll();
 }
@@ -58,3 +72,4 @@ function getEventsById(PDO $pdo, int $id) {
     return $query->fetch();
 
 }
+
