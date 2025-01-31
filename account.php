@@ -19,6 +19,10 @@ $lists = [
                 <tr>
                     <th scope="row"><?php echo $list['titre'] ?></th>
                     <td><?php echo $list['description'] ?></td>
+                    <td class="d flex">
+                            <input type="submit" value="Valider" class="btn btn-primary"></input>
+                            <input type="submit" value="Supprimer" class="btn btn-primary"></input>
+                    </td>
                 </tr>
             <?php } ?>
             </tbody>

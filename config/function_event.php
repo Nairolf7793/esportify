@@ -72,4 +72,3 @@ function getEventsById(PDO $pdo, int $id) {
     return $query->fetch();
 
 }
-
