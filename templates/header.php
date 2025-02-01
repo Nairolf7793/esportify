@@ -2,7 +2,6 @@
 session_start();
 require_once __DIR__ . '/../config/menu.php';
 
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,6 +31,7 @@ require_once __DIR__ . '/../config/menu.php';
 
             <div class="col-md-3 text-end d-flex">
                 <?php if (isset($_SESSION['user'])): ?>
+                    <p>Bonjour <?php echo $_SESSION["user"]["pseudo"] ?></p>
                     <a href="account.php" class="btn btn-primary me-2">Mon espace</a>
                     <a href="logout.php" class="btn btn-primary me-2">Déconnexion</a>
                 <?php else: ?>
