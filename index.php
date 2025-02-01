@@ -4,7 +4,11 @@ require_once "config/function_event.php";
 $events = getEvents($pdo);
 ?>
 
-<h1>Bienvenue chez Esportify</h1>
+<?php if (isset($_SESSION['user'])): ?>
+    <h1>Bienvenue chez Esportify <b><?php echo $_SESSION["user"]["pseudo"] ?></b></h1>
+<?php else: ?>
+    <h1>Bienvenue chez Esportify</h1>
+<?php endif ?>
 
 <div class="class_test d-flex justify-content-around ">
     <div id="carouselExampleRide" class="carousel slide w-100 " data-bs-ride="true">
@@ -43,27 +47,27 @@ $events = getEvents($pdo);
 </div>
 
 <section class="dernier event">
-<div class="row my-5">
-    <div class="d-flex justify-content-between mb-1">
-       <h2>Event en cours</h2>
-       <a href="events.php" class="btn btn-primary">Voir tout</a>
+    <div class="row my-5">
+        <div class="d-flex justify-content-between mb-1">
+            <h2>Event en cours</h2>
+            <a href="events.php" class="btn btn-primary">Voir tout</a>
+        </div>
+        <?php foreach ($events as $event) {
+            include "templates/events_part.php";
+        };
+        ?>
     </div>
-    <?php foreach ($events as $event) {
-        include "templates/events_part.php";
-    };
-    ?>
-</div>
 
-<div class="row my-5">
-<div class="d-flex justify-content-between mb-1">
-       <h2>Derniers events crées</h2>
-       <a href="events.php" class="btn btn-primary">Voir tout</a>
+    <div class="row my-5">
+        <div class="d-flex justify-content-between mb-1">
+            <h2>Derniers events crées</h2>
+            <a href="events.php" class="btn btn-primary">Voir tout</a>
+        </div>
+        <?php foreach ($events as $event) {
+            include "templates/events_part.php";
+        };
+        ?>
     </div>
-    <?php foreach ($events as $event) {
-        include "templates/events_part.php";
-    };
-    ?>
-</div>
 </section>
 <?php
 require_once 'templates/footer.php';
