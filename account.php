@@ -1,10 +1,13 @@
 <?php
 require_once "templates/header.php";
-$lists = [
-    ['titre' => 'titre 1', 'description' => 'description numéro 1'],
-    ['titre' => 'titre 2', 'description' => 'description numéro 2'],
-    ['titre' => 'titre 3', 'description' => 'description numéro 3'],
-]
+require_once "config/function_event.php";
+
+$events = getEvents($pdo);
+
+if (isset($_GET['action']) && isset($_GET['id'])) {
+    if($_GET['action'] === 'okEvents') {
+    $res = updateEvents($pdo, (int)$_GET['id']);
+}}
 
 ?>
 
@@ -14,20 +17,20 @@ $lists = [
     ?>
 
     <table class="table">
-        <?php foreach ($lists as $list) { ?>
+        <?php foreach ($events as $event) { ?>
             <tbody>
                 <tr>
-                    <th scope="row"><?php echo $list['titre'] ?></th>
-                    <td><?php echo $list['description'] ?></td>
+                    <th scope="row"><?php echo $event['titre'] ?></th>
+                    <td><?php echo $event['description'] ?></td>
                     <td class="d flex">
-                            <input type="submit" value="Valider" class="btn btn-primary"></input>
-                            <input type="submit" value="Supprimer" class="btn btn-primary"></input>
+                        
+                        <a class="btn btn-primary" href="?action=okEvents&id=<?=$event['id'] ?>">Valider</a>
+       
                     </td>
                 </tr>
             <?php } ?>
             </tbody>
     </table>
-
 </div>
 
 <?php

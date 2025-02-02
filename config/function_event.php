@@ -2,6 +2,7 @@
 require_once "pdo.php";
 
 
+//fonction pour ajouter un event
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function addEvents (PDO $pdo, string $titre, string $description, int $nb_joueur, string $date_debut, string $heure_debut, string $date_fin, string $heure_fin){
     $id_joueur = $_SESSION['user']['id'];
@@ -20,6 +21,7 @@ function addEvents (PDO $pdo, string $titre, string $description, int $nb_joueur
 }
 }
 
+//fonction pour vérifier que les champs sont bien remplis
 function verifyEvent($event): array|bool {
     $errors = [];
     if (isset($event ["titre"])) {
@@ -47,6 +49,7 @@ function verifyEvent($event): array|bool {
     }
 }
 
+//fonction pour filtrer les events
 function getEvents (PDO $pdo, array $filters = []) :array {
     $orderBy = "event.id DESC";
     $relevance = "";
@@ -67,10 +70,21 @@ function getEvents (PDO $pdo, array $filters = []) :array {
     return $query->fetchAll();
 }
 
+//fonction pour recuperer l'id de l'envent
 function getEventsById(PDO $pdo, int $id) {
     $query = $pdo->prepare('SELECT * FROM event WHERE id=:id');
     $query->bindParam (":id", $id, PDO::PARAM_INT);
     $query->execute();
     return $query->fetch();
 
+}
+
+//fonction pour valider un event (change la visibilité "en_att" à "oui")
+
+function updateEvents(PDO $pdo, int $id)
+{
+    $query = $pdo->prepare('UPDATE event SET visibilite="oui" WHERE visibilite = "en_att" AND id = :id ');
+    $query->bindValue(':id', $id, PDO::PARAM_INT);
+
+    return $query->execute();
 }
