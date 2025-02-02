@@ -7,6 +7,7 @@ $events = getEvents($pdo);
 if (isset($_GET['action']) && isset($_GET['id'])) {
     if($_GET['action'] === 'okEvents') {
     $res = updateEvents($pdo, (int)$_GET['id']);
+    header('location:account.php');
 }
 if($_GET['action'] === 'deleteEvents') {
     $res = deleteEvents($pdo, (int)$_GET['id']);
