@@ -88,3 +88,12 @@ function updateEvents(PDO $pdo, int $id)
 
     return $query->execute();
 }
+
+//fonction pour supprimer un event
+function deleteEvents(PDO $pdo, int $id)
+{
+    $query = $pdo->prepare('DELETE FROM event WHERE id = :id ');
+    $query->bindValue(':id', $id, PDO::PARAM_INT);
+
+    return $query->execute();
+}

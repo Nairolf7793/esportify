@@ -7,7 +7,12 @@ $events = getEvents($pdo);
 if (isset($_GET['action']) && isset($_GET['id'])) {
     if($_GET['action'] === 'okEvents') {
     $res = updateEvents($pdo, (int)$_GET['id']);
-}}
+}
+if($_GET['action'] === 'deleteEvents') {
+    $res = deleteEvents($pdo, (int)$_GET['id']);
+    header('location:account.php');
+}
+}
 
 ?>
 
@@ -25,6 +30,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                     <td class="d flex">
                         
                         <a class="btn btn-primary" href="?action=okEvents&id=<?=$event['id'] ?>">Valider</a>
+                        <a class="btn btn-primary" href="?action=deleteEvents&id=<?=$event['id'] ?>">Supprimer</a>
        
                     </td>
                 </tr>
