@@ -4,9 +4,14 @@ require_once "config/function_event.php";
 
 $filters = [];
 if (isset($_GET["search"]) && $_GET["search"] !== "") {
-    $filters["search"] = $_GET["search"];
+  $filters["search"] = $_GET["search"];
 }
 $events = getEvents($pdo, $filters);
+
+if (isset($message)) {
+  echo "<p class='alert alert-info text-center'>$message</p>";
+}
+
 ?>
 
 <a href="create_event.php">Creer ton event</a>
@@ -15,7 +20,7 @@ $events = getEvents($pdo, $filters);
   <form action="" method="get">
     <h2>Filtres</h2>
     <div class="p-3 border-bottom">
-      <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher" >
+      <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher">
     </div>
     <div class="p-3 border-bottom">
       <label for="nb_joueurs">Joueurs</label>
@@ -52,11 +57,14 @@ $events = getEvents($pdo, $filters);
       </div>
       <div class="col-md-3 d-flex align-items-center">
         <div class="card-body ">
-        <form action="" method ="POST">
-          <input type ="hidden" name="id_event" value="<?php echo $event['id']; ?>">
-          <button type="submit" class="btn btn-success btn-inscrire" <?php echo ($event['nb_joueur'] <= 0) ? 'disabled' : ''; ?>>S'inscrire
-</button>
-          <a href="events.php" class="btn btn-secondary">Rejoindre l'event</a>
+          <form action="" method="POST">
+            
+            <input type="hidden" name="id_event" value="<?php echo $event['id']; ?>">
+            <button type="submit" class="btn btn-success btn-inscrire" <?php echo ($event['nb_joueur'] <= 0) ? 'disabled' : ''; ?>>S'inscrire
+            </button>
+            
+            <a href="events.php" class="btn btn-secondary">Rejoindre l'event</a>
+            </form>
         </div>
       </div>
     </div>

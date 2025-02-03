@@ -1,7 +1,8 @@
 <?php 
 require_once "pdo.php";
 
-
+$errors = [];
+$messages = [];
 //fonction pour ajouter un event
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function addEvents (PDO $pdo, string $titre, string $description, int $nb_joueur, string $date_debut, string $heure_debut, string $date_fin, string $heure_fin){
@@ -118,7 +119,8 @@ function inscrireJoueur(PDO $pdo, $id_event, $id_joueur) {
    $query->execute([':id_event' => $id_event, ':id_joueur' => $id_joueur]);
 
    if ($query->fetch()) {
-       return 'Vous êtes déjà inscrit à cet événement.';
+    return 'vous etes deja inscrit';
+   
    }
 
    // Ajouter l'inscription
