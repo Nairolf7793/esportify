@@ -9,7 +9,7 @@ if (isset($_GET["search"]) && $_GET["search"] !== "") {
 $events = getEvents($pdo, $filters);
 
 if (isset($message)) {
-  echo "<p class='alert alert-info text-center'>$message</p>";
+  echo "<p id='message-alert' class='alert alert-info text-center'>$message</p>";
 }
 
 ?>
