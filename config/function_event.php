@@ -97,3 +97,55 @@ function deleteEvents(PDO $pdo, int $id)
 
     return $query->execute();
 }
+
+//fonction pour s'inscrire à un event
+function inscrireJoueur(PDO $pdo, $id_event, $id_joueur) {
+    
+    $query = $pdo->prepare('SELECT nb_joueur FROM event WHERE id = :id_event');
+    $query->execute([':id_event' => $id_event]);
+    $event = $query->fetch(PDO::FETCH_ASSOC);
+
+    if (!$event) {
+        return 'Événement introuvable.';
+    }
+
+    if ($event['nb_joueur'] <= 0) {
+        return 'Plus de places disponibles.';
+    }
+
+   // Vérifier si le joueur est déjà inscrit
+   $query = $pdo->prepare('SELECT * FROM inscription WHERE id_event = :id_event AND id_joueur = :id_joueur');
+   $query->execute([':id_event' => $id_event, ':id_joueur' => $id_joueur]);
+
+   if ($query->fetch()) {
+       return 'Vous êtes déjà inscrit à cet événement.';
+   }
+
+   // Ajouter l'inscription
+   $query = $pdo->prepare('INSERT INTO inscription (id_event, id_joueur) VALUES (:id_event, :id_joueur)');
+   $query->execute([':id_event' => $id_event, ':id_joueur' => $id_joueur]);
+
+   // Déduire une place de l'événement
+   $query = $pdo->prepare('UPDATE event SET nb_joueur = nb_joueur - 1 WHERE id = :id_event');
+   $query->execute([':id_event' => $id_event]);
+
+   return 'Inscription réussie.';
+}
+
+// Traitement de l'inscription
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_event'])) {
+   $id_event = $_POST['id_event'];
+  
+   $id_joueur = $_SESSION['user']['id']; // Récupérer l'ID de l'utilisateur connecté
+   
+
+   $message = inscrireJoueur($pdo, $id_event, $id_joueur);
+
+   // Rediriger ou afficher un message
+   if ($message === 'Inscription réussie.') {
+     
+   } else {
+       
+   }
+}
+?>

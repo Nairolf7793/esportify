@@ -52,7 +52,10 @@ $events = getEvents($pdo, $filters);
       </div>
       <div class="col-md-3 d-flex align-items-center">
         <div class="card-body ">
-          <a href="events.php" class="btn btn-primary">S'inscrire</a>
+        <form action="" method ="POST">
+          <input type ="hidden" name="id_event" value="<?php echo $event['id']; ?>">
+          <button type="submit" class="btn btn-success btn-inscrire" <?php echo ($event['nb_joueur'] <= 0) ? 'disabled' : ''; ?>>S'inscrire
+</button>
           <a href="events.php" class="btn btn-secondary">Rejoindre l'event</a>
         </div>
       </div>
