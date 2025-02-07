@@ -14,14 +14,17 @@ $events = getEvents($pdo);
             $inscriptions = fetchInscriptionsByUser($pdo, $id_joueur);
         ?>
             <div class="col-sm-10">
-                <h3> Mes evenements</h3>
+                <h3> Mes Events</h3>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <?php foreach ($events as $event) { ?>
+                    <?php foreach ($inscriptions as $inscription) { ?>
                         <div class="col">
                             <div class="card h-100">
-                                <h5 class="card-title"><?php echo $event['titre']; ?></h5>
-                                <p><?php echo $event['description']; ?></p>
-                                <p>Statut de l'event : <?php echo $event['visibilite'] ?></p>
+                                <h5 class="card-title"><?php echo $inscription['titre']; ?></h5>
+                                <p><?php echo $inscription['description']; ?></p>
+                                <p>Statut de l'event : <?php echo $inscription['visibilite'] ?></p>
+                                <p>Statut de l'inscription : <?php echo $inscription['statut'] ?></p>
+                                <p></p>
+                                </p>
                             </div>
                         </div>
                     <?php } ?>
@@ -29,9 +32,6 @@ $events = getEvents($pdo);
             </div>
         <?php } ?>
     </table>
-</div>
-
-
 </div>
 
 <?php

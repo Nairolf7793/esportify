@@ -169,7 +169,7 @@ function deleteInscription(PDO $pdo, int $id)
 
 //fonction pour afficher les inscriptions du joueur
 function fetchInscriptionsByUser(PDO $pdo, $id_joueur) {
-    $query = $pdo->prepare('SELECT event.*, inscription.statut FROM event JOIN inscription ON event.id = inscription.id_event  WHERE inscription.id_joueur = :id_joueur AND statut= "en_att"' );
+    $query = $pdo->prepare('SELECT event.*, inscription.statut FROM event JOIN inscription ON event.id = inscription.id_event  WHERE inscription.id_joueur = :id_joueur' );
     $query->bindParam (":id_joueur", $id_joueur);
     $query->execute();
     return $query->fetchAll(PDO::FETCH_ASSOC);

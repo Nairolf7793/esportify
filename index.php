@@ -4,7 +4,8 @@ require_once "config/function_event.php";
 $events = getEvents($pdo);
 ?>
 
-<?php if (isset($_SESSION['user'])): ?>
+<?php if (isset($_SESSION['user'])):
+?>
     <h1>Bienvenue chez Esportify <b><?php echo $_SESSION["user"]["pseudo"] ?></b></h1>
 <?php else: ?>
     <h1>Bienvenue chez Esportify</h1>

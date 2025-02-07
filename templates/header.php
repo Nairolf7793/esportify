@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/../config/menu.php';
+require_once __DIR__ . '/../config/function_user.php';
 
 ?>
 <!DOCTYPE html>

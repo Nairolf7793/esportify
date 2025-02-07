@@ -42,6 +42,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         <?php } ?>
     </table>
 </div>
+
 <?php
 require_once "templates/footer.php";
 ?>

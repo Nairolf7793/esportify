@@ -11,15 +11,6 @@
             <a href="../create_event.php" class="nav-link">Créer un événement</a>
         </li>
         <li>
-            <a href="../admin_event.php" class="nav-link">Valider les événements</a>
-        </li>
-        <li>
-            <a href="../admin_inscription.php" class="nav-link">Valider les inscriptions</a>
-        </li>
-        <li>
-            <a href="#" class="nav-link">Modifier un compte utilisateurs</a>
-        </li>
-        <li>
             <a href="#" class="nav-link">Historique des événements</a>
         </li>
         <li>
@@ -28,5 +19,22 @@
         <li>
             <a href="#" class="nav-link">Modifier mon compte</a>
         </li>
+        <li>
+            <h3>ADMIN</h3>
+        </li>
+        <?php 
+        if ($_SESSION["user"]["role"] == "admin"): 
+            ?>
+       
+        <li>
+            <a href="../admin_event.php" class="nav-link">Valider les événements</a>
+        </li>
+        <li>
+            <a href="../admin_inscription.php" class="nav-link">Valider les inscriptions</a>
+        </li>
+        <li>
+            <a href="#" class="nav-link">Modifier un compte utilisateurs</a>
+        </li>
+        <?php endif; ?>
     </ul>
 </div>
