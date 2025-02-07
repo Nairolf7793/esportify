@@ -33,7 +33,7 @@
             <a href="../admin_inscription.php" class="nav-link">Valider les inscriptions</a>
         </li>
         <li>
-            <a href="#" class="nav-link">Modifier un compte utilisateurs</a>
+            <a href="../admin_user.php" class="nav-link">Modifier un compte utilisateurs</a>
         </li>
         <?php endif; ?>
     </ul>
