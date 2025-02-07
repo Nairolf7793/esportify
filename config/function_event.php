@@ -93,7 +93,7 @@ function updateEvents(PDO $pdo, int $id)
 //fonction pour supprimer un event
 function deleteEvents(PDO $pdo, int $id)
 {
-    $query = $pdo->prepare('DELETE FROM event WHERE id = :id ');
+    $query = $pdo->prepare('DELETE FROM event WHERE id_event = :id ');
     $query->bindValue(':id', $id, PDO::PARAM_INT);
 
     return $query->execute();
@@ -137,10 +137,8 @@ function inscrireJoueur(PDO $pdo, $id_event, $id_joueur) {
 // Traitement de l'inscription
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_event'])) {
    $id_event = $_POST['id_event'];
-  
-   $id_joueur = $_SESSION['user']['id']; // Récupérer l'ID de l'utilisateur connecté
-   
 
+   $id_joueur = $_SESSION['user']['id']; // Récupérer l'ID de l'utilisateur connecté
    $message = inscrireJoueur($pdo, $id_event, $id_joueur);
 
    // Rediriger ou afficher un message
@@ -149,5 +147,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_event'])) {
    } else {
        
    }
+}
+
+// fonction pour valider une inscription de joueur
+function updateInscription(PDO $pdo, int $id)
+{
+    $query = $pdo->prepare('UPDATE inscription SET statut="oui" WHERE statut = "en_att" AND id_event = :id ');
+    $query->bindValue(':id', $id, PDO::PARAM_INT);
+
+    return $query->execute();
+}
+
+//fonction pour supprimer une inscription de joueur
+function deleteInscription(PDO $pdo, int $id)
+{
+    $query = $pdo->prepare('DELETE FROM inscription WHERE id_event = :id ');
+    $query->bindValue(':id', $id, PDO::PARAM_INT);
+
+    return $query->execute();
+}
+
+//fonction pour afficher les inscriptions du joueur
+function fetchInscriptionsByUser(PDO $pdo, $id_joueur) {
+    $query = $pdo->prepare('SELECT event.*, inscription.statut FROM event JOIN inscription ON event.id = inscription.id_event  WHERE inscription.id_joueur = :id_joueur AND statut= "en_att"' );
+    $query->bindParam (":id_joueur", $id_joueur);
+    $query->execute();
+    return $query->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
