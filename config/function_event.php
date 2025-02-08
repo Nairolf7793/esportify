@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_event'])) {
    }
 }
 
-// fonction pour valider une inscription de joueur
+// fonction pour valider une inscription de joueur à un event
 function updateInscription(PDO $pdo, int $id)
 {
     $query = $pdo->prepare('UPDATE inscription SET statut="oui" WHERE statut = "en_att" AND id_event = :id ');
