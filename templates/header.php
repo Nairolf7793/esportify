@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/../config/menu.php';
-
+require_once __DIR__ . '/../config/function_user.php';
 
 ?>
 <!DOCTYPE html>
@@ -24,14 +24,14 @@ require_once __DIR__ . '/../config/menu.php';
                 </a>
             </div>
 
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 nav nav-pills">
+            <ul class="nav col-6 col-md-auto mb-2 justify-content-center mb-md-0 nav nav-pills">
                 <?php foreach ($mainMenu as $key => $value) { ?>
                     <li class="nav-item"><a href="<?php echo $key ?>" class="nav-link <?php if ($currentPage === "$key") { echo "active"; } ?>"><?php  echo $value ?></a></li>
                 <?php } ?>
             </ul>
 
-            <div class="col-md-3 text-end d-flex">
-                <?php if (isset($_SESSION['user'])): ?>
+            <div class="col-3 text-end d-flex">
+            <?php if (isset($_SESSION['user'])): ?>
                     <a href="account.php" class="btn btn-primary me-2">Mon espace</a>
                     <a href="logout.php" class="btn btn-primary me-2">Déconnexion</a>
                 <?php else: ?>

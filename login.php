@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     session_regenerate_id(true);
     $_SESSION["user"] = [
       "id" => $user["id"],
-      "pseudo" => $user["pseudo"]
+      "pseudo" => $user["pseudo"],
+      "role" => $user["role"]
     ];
     header("location: index.php");
   } else {
