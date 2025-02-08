@@ -16,7 +16,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
 }
 ?>
 
-<div class=" d-flex">
+<div class=" d-flex d-flex gap-3">
     <?php
     require_once "templates/header_account.php";
     ?>

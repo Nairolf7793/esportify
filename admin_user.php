@@ -15,12 +15,11 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
 }
 
 ?>
-<div class="d-flex">
+<div class="d-flex d-flex gap-3">
     <?php require_once 'templates/header_account.php';
     ?>
     <div class="col">
-        <h1>Compte joueur</h1>
-
+        <h3>Compte joueur</h3>
         <div class="row">
             <?php foreach ($lists as $list) { ?>
                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -33,7 +32,6 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                             <a class="btn btn-primary" href="?action=okJoueur&id=<?= $list['id'] ?>">Supprimer</a>
                         </div>
                     </div>
-
                 </div>
             <?php } ?>
         </div>

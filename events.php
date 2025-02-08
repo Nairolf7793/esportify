@@ -11,10 +11,7 @@ $events = getEvents($pdo, $filters);
 if (isset($message)) {
   echo "<p id='message-alert' class='alert alert-info text-center'>$message</p>";
 }
-
 ?>
-
-<a href="create_event.php">Creer ton event</a>
 
 <div class="col-md-3 mb-5">
   <form action="" method="get">
@@ -58,13 +55,11 @@ if (isset($message)) {
       <div class="col-md-3 d-flex align-items-center">
         <div class="card-body ">
           <form action="" method="POST">
-            
             <input type="hidden" name="id_event" value="<?php echo $event['id']; ?>">
             <button type="submit" class="btn btn-success btn-inscrire" <?php echo ($event['nb_joueur'] <= 0) ? 'disabled' : ''; ?>>S'inscrire
             </button>
-            
             <a href="events.php" class="btn btn-secondary">Rejoindre l'event</a>
-            </form>
+          </form>
         </div>
       </div>
     </div>

@@ -30,7 +30,7 @@ require_once __DIR__ . '/../config/function_user.php';
                 <?php } ?>
             </ul>
 
-            <div class="col-3 text-end d-flex">
+            <div class="col-3 text-end">
             <?php if (isset($_SESSION['user'])): ?>
                     <a href="account.php" class="btn btn-primary me-2">Mon espace</a>
                     <a href="logout.php" class="btn btn-primary me-2">Déconnexion</a>

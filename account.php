@@ -4,7 +4,7 @@ require_once "config/function_event.php";
 
 $events = getEvents($pdo);
 ?>
-<div class=" d-flex">
+<div class=" d-flex gap-3">
     <?php
     require_once "templates/header_account.php";
     ?>
@@ -14,7 +14,7 @@ $events = getEvents($pdo);
             $inscriptions = fetchInscriptionsByUser($pdo, $id_joueur);
         ?>
             <div class="col-sm-10">
-                <h3> Mes Events</h3>
+                <h3>Mes Events</h3>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <?php foreach ($inscriptions as $inscription) { ?>
                         <div class="col">

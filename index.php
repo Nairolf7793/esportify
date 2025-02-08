@@ -4,6 +4,7 @@ require_once "config/function_event.php";
 $events = getEvents($pdo);
 ?>
 
+<section class = "text-center">
 <?php if (isset($_SESSION['user'])):
 ?>
     <h1>Bienvenue chez Esportify <b><?php echo $_SESSION["user"]["pseudo"] ?></b></h1>
@@ -11,7 +12,19 @@ $events = getEvents($pdo);
     <h1>Bienvenue chez Esportify</h1>
 <?php endif ?>
 
-<div class="class_test d-flex justify-content-around ">
+<p class=" text-center m-2">
+Fondée le 17 mars 2021 en France, Esportify est une startup innovante dédiée au e-sport . 
+Spécialisée dans l'organisation de compétitions de jeux vidéo, nous avons rapidement conquis notre communauté grâce à des événements mémorables.
+
+Aujourd'hui, nous franchissons une nouvelle étape avec le développement d'une plateforme en ligne dédiée . 
+Celle-ci permettra aux joueurs de s'inscrire facilement à des tournois, de participer à des compétitions, 
+et d'accéder à une gestion simplifiée des événements. </p>
+
+<i>Rejoignez-nous dans cette aventure !</i>
+Que vous soyez joueur, organisateur ou simplement passionné par le e-sport, Esportify est là pour vous offrir une expérience unique. 
+
+</section>
+<div class="class_test d-flex justify-content-around mt-5 ">
     <div id="carouselExampleRide" class="carousel slide w-100 " data-bs-ride="true">
         <div class="carousel-inner">
             <div class="carousel-item active">
