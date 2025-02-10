@@ -18,13 +18,15 @@ $events = getEvents($pdo);
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <?php foreach ($inscriptions as $inscription) { ?>
                         <div class="col">
-                            <div class="card h-100">
+                            <div class="card h-100 p-3">
                                 <h5 class="card-title"><?php echo $inscription['titre']; ?></h5>
                                 <p><?php echo $inscription['description']; ?></p>
                                 <p>Statut de l'event : <?php echo $inscription['visibilite'] ?></p>
                                 <p>Statut de l'inscription : <?php echo $inscription['statut'] ?></p>
-                                <p></p>
-                                </p>
+                                <?php if ($inscription['statut'] == 'oui'): ?>
+                                    <a href="" class="btn btn-primary" id="online">Rejoindre</a>
+                                <?php else :""?>
+                                <?php endif ?>                             
                             </div>
                         </div>
                     <?php } ?>
