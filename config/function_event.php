@@ -1,5 +1,6 @@
 <?php 
 require_once "pdo.php";
+require_once "menu.php";
 
 $errors = [];
 $messages = [];
@@ -173,5 +174,14 @@ function fetchInscriptionsByUser(PDO $pdo, $id_joueur) {
     $query->bindParam (":id_joueur", $id_joueur);
     $query->execute();
     return $query->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getEventImage(string |NULL $image) {
+    if ($image === null ){
+        return  _ASSETS_IMG_PATH_. "error.png";
+      } else {
+        return  _EVENTS_IMG_PATH_.$image;
+      }
+      
 }
 ?>

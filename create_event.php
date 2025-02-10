@@ -11,10 +11,20 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     } else {
         $errors = $verifEvent;
     }
+
+    if(isset($_FILES['file']['tmp_name']) && $_FILES['file']['tmp_name'] !='') {
+        $checkImage = getimagesize($_FILES['file']['tmp_name']);
+        if ($checkImage !== false) {
+            $fileName = uniqid().'-'.$_FILES['file']['tmp_name']; //-< fonction pour renommer le nom de l'image, evite que pluisuers personne mettent le même nom, ajoute un numéro
+            move_uploaded_file($_FILES['file']['tmp_name'], _EVENTS_IMG_PATH_.$_FILES['file']['tmp_name']); // -< fonction pour bouger l'image vers le dossier upload image
+        } else {
+            $errors[] = 'le fichier n\'est pas une image';
+        }
+    }
 }
 ?>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="titre">Titre :</label>
         <input type="text" name="titre" id="titre" class="form-control">
@@ -59,6 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             <label for="heure_fin">Heure de fin :</label>
             <input type="time" name="heure_fin" id="heure_fin" class="form-control" min="1">
         </div>
+       
+    </div>
+    <div class="mb-3">
+        <label for= "file" class="form-label">Image</label>
+        <input type="file" name="file" id="file">
     </div>
     <input type="submit" class="btn btn-primary" name="addEvents" value="Enregistrer">
 </form>

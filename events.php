@@ -14,7 +14,7 @@ if (isset($message)) {
 ?>
 
 <div class="col-md-3 mb-5">
-  <form action="" method="get">
+  <form action="" method="get" >
     <h2>Filtres</h2>
     <div class="p-3 border-bottom">
       <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher">
@@ -41,8 +41,8 @@ if (isset($message)) {
 <?php foreach ($events as $event) { ?>
   <div class="card mb-3">
     <div class="row g-0">
-      <div class="col-md-3">
-        <img src="..." class="img-fluid rounded-start" alt="...">
+    <div class="col-md-3">
+      <img src="<?php echo getEventImage($event['chemin_image']) ?>" class="d-block mx-lg-auto img-fluid" alt="Thèmes Bootstrap" width="200" height="200" loading="lazy">
       </div>
       <div class="col-md-6">
         <div class="card-body text-center">
