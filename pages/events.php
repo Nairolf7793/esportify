@@ -1,6 +1,6 @@
 <?php
-require_once "templates/header.php";
-require_once "config/function_event.php";
+require_once "../templates/header.php";
+require_once "../config/function_event.php";
 
 $filters = [];
 if (isset($_GET["search"]) && $_GET["search"] !== "") {
@@ -67,5 +67,5 @@ if (isset($message)) {
 <?php } ?>
 
 <?php
-require_once "templates/footer.php";
+require_once "../templates/footer.php";
 ?>

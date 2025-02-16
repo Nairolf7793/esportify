@@ -8,7 +8,7 @@
             <a href="../account.php" class="nav-link">Mes events</a>
         </li>
         <li>
-            <a href="../create_event.php" class="nav-link">Créer un événement</a>
+            <a href="../pages/create_event.php" class="nav-link">Créer un événement</a>
         </li>
         <li>
             <a href="#" class="nav-link">Historique des événements</a>
@@ -27,13 +27,13 @@
             ?>
        
         <li>
-            <a href="../admin_event.php" class="nav-link">Valider les événements</a>
+            <a href="../pages/admin_event.php" class="nav-link">Valider les événements</a>
         </li>
         <li>
-            <a href="../admin_inscription.php" class="nav-link">Valider les inscriptions</a>
+            <a href="../pages/admin_inscription.php" class="nav-link">Valider les inscriptions</a>
         </li>
         <li>
-            <a href="../admin_user.php" class="nav-link">Modifier un compte utilisateurs</a>
+            <a href="../pages/admin_user.php" class="nav-link">Modifier un compte utilisateurs</a>
         </li>
         <?php endif; ?>
     </ul>

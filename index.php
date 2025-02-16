@@ -38,7 +38,7 @@ Que vous soyez joueur, organisateur ou simplement passionné par le e-sport, Esp
                 <img src="assets/images/enfant.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Une communauté de tout age</h5>
-                    <p>Rejoignez nos erveurs à partir de 12ans</p>
+                    <p>Rejoignez nos serveurs à partir de 12ans</p>
                 </div>
             </div>
             <div class="carousel-item">

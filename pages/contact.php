@@ -1,4 +1,4 @@
-<?php require_once "templates/header.php";
+<?php require_once "../templates/header.php";
 
 ?>
 <h1>Contact</h1>
@@ -21,5 +21,5 @@
     <input class="btn btn-primary mt-3" type="submit" value="Envoie de la demande"></input>
 </form>
 
-<?php require_once "templates/footer.php";
+<?php require_once "../templates/footer.php";
 ?>

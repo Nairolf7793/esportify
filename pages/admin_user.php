@@ -1,6 +1,5 @@
-<?php require_once 'templates/header.php';
-
-require_once 'config/function_admin.php';
+<?php require_once '../templates/header.php';
+require_once '../config/function_admin.php';
 
 $lists = adminListInscription($pdo);
 if (isset($_GET['action']) && isset($_GET['id'])) {
@@ -13,10 +12,9 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         header('location:admin_user.php');
     }
 }
-
 ?>
 <div class="d-flex d-flex gap-3">
-    <?php require_once 'templates/header_account.php';
+    <?php require_once '../templates/header_account.php';
     ?>
     <div class="col">
         <h3>Compte joueur</h3>
@@ -37,3 +35,5 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         </div>
     </div>
 </div>
+
+<?php require_once "../templates/footer.php";?>

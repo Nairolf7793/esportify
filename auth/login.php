@@ -1,6 +1,6 @@
 <?php
-require_once  'templates/header.php';
-require_once 'config/function_user.php';
+require_once  '../templates/header.php';
+require_once '../config/function_user.php';
 
 $error = null;
 
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       "pseudo" => $user["pseudo"],
       "role" => $user["role"]
     ];
-    header("location: index.php");
+    header("location: ../index.php");
   } else {
     $error = "Pseudo ou mp incorrect";
   }
@@ -46,4 +46,4 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 </form>
 
 <?php
-require_once 'templates/footer.php';
+require_once '../templates/footer.php';

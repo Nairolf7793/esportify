@@ -1,6 +1,6 @@
 <?php
-require_once "templates/header.php";
-require_once "config/function_event.php";
+require_once "../templates/header.php";
+require_once "../config/function_event.php";
 
 $events = getEvents($pdo);
 
@@ -18,7 +18,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
 
 <div class=" d-flex d-flex gap-3">
     <?php
-    require_once "templates/header_account.php";
+    require_once "../templates/header_account.php";
     ?>
     <table class="table">
         <?php if (isset($_SESSION['user']['id'])) {
@@ -44,5 +44,5 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     </table>
 </div>
 <?php
-require_once "templates/footer.php";
+require_once "../templates/footer.php";
 ?>

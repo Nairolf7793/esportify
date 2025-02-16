@@ -1,6 +1,6 @@
 <?php
-require_once "templates/header.php";
-require_once "config/function_event.php";
+require_once "../templates/header.php";
+require_once "../config/function_event.php";
 $id = (int)$_GET["id"];
 $event = getEventsById($pdo, $id);
 ?>
@@ -20,5 +20,5 @@ $event = getEventsById($pdo, $id);
 </div>
 
 <?php
-require_once "templates/footer.php";
+require_once "../templates/footer.php";
 ?>

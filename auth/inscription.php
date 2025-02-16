@@ -1,6 +1,6 @@
 <?php
-require_once 'config/function_user.php';
-require_once 'templates/header.php';
+require_once '../config/function_user.php';
+require_once '../templates/header.php';
 
 
 $errors = [];
@@ -56,5 +56,5 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 </form>
 
 <?php
-require_once 'templates/footer.php'
+require_once '../templates/footer.php'
 ?>

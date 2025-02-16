@@ -5,7 +5,7 @@ define("_ASSETS_IMG_PATH_", "/assets/images/");
 $currentPage = basename($_SERVER['SCRIPT_NAME']);
 $mainMenu = [
     "/index.php" => 'Accueil',
-    "/events.php" => 'Evenements',
-    "/contact.php" => 'Contact',
+    "/pages/events.php" => 'Evenements',
+    "/pages/contact.php" => 'Contact',
   ];
 
