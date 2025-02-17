@@ -16,7 +16,7 @@
         <input type="mail" name="mail" id="mail" class="form-control" placeholder="Votre mail">
     </div>
     <div class="mt-3">
-        <textarea class="form-control" cols="30" rows="5" name="commentaire" id="" placeholder="Autre demande"></textarea>
+        <textarea class="form-control" cols="30" rows="5" name="commentaire" id="" placeholder="Votre demande"></textarea>
     </div>
     <input class="btn btn-primary mt-3" type="submit" value="Envoie de la demande"></input>
 </form>

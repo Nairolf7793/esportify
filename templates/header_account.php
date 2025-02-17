@@ -19,9 +19,6 @@
         <li>
             <a href="#" class="nav-link">Modifier mon compte</a>
         </li>
-        <li>
-            <h3>ADMIN</h3>
-        </li>
         <?php 
         if ($_SESSION["user"]["role"] == "admin"): 
             ?>

@@ -49,7 +49,7 @@ if (isset($message)) {
           <h5 class="card-title"><?php echo $event['titre'] ?></h5>
           <p class="card-text"><?php echo $event['description'] ?></p>
           <p class="card-text"><small class="text-body-secondary">Date de début : <?php echo $event['date_debut'] ?></small></p>
-          <p class="card-text"><small class="text-body-secondary">Nombre de joueur : <?php echo $event['nb_joueur'] ?> / 6</small></p>
+          <p class="card-text"><small class="text-body-secondary">Nombre de place disponible : <?php echo $event['nb_joueur'] ?></small></p>
         </div>
       </div>
       <div class="col-md-3 d-flex align-items-center">
