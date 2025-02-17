@@ -4,8 +4,8 @@
         <div class="card-body">
             <h5 class="card-title"><?php echo $event['titre'] ?></h5>
             <p class="card-text"><?php echo $event['description'] ?></p>
-            <div class="d-flex flex-row gap-2 text-center">
-                <a href="../pages/event.php?id=<?php echo $event['id'] ?>" class="btn btn-primary text-center">Voir en detail</a>
+            <div class="d-flex flex-row gap-2">
+                <a href="../pages/event.php?id=<?php echo $event['id'] ?>" class="btn btn-primary">Voir en detail</a>
             </div>
         </div>
     </div>
